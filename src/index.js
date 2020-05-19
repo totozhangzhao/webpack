@@ -1,16 +1,16 @@
 import _ from 'lodash';
-import './index.css';
-import Kobe from './img/kobe1.jpg';
+import printMe from './print';
 
 function component() {
   let element = document.createElement('div');
-  element.innerHTML = _.join(['Hello new ', 'World'], '');
-  element.classList.add('red');
+  let btn = document.createElement('button');
+  element.innerHTML = _.join(['Hello ', 'World'], '');
 
-  let img = new Image();
-  img.src = Kobe;
+  btn.innerHTML = 'click me and check the console!';
+  btn.onclick = printMe;
 
-  element.appendChild(img);
+  element.appendChild(btn);
+
   return element;
 }
 
