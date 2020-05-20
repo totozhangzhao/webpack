@@ -2,15 +2,12 @@ import _ from 'lodash';
 import printMe from './print';
 import './index.css';
 
+import { cube } from './math';
+
 function component() {
-  let element = document.createElement('div');
-  let btn = document.createElement('button');
-  element.innerHTML = _.join(['Hello ', 'World'], '');
+  let element = document.createElement('pre');
 
-  btn.innerHTML = 'click me and check the console!';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
+  element.innerHTML = ['Hello webpack!', '5 cubed is equal to' + cube(5)].join('\n\n');
 
   return element;
 }
@@ -18,14 +15,3 @@ function component() {
 let element = component();
 
 document.body.appendChild(element);
-
-if (module.hot) {
-  module.hot.accept('./print.js', function () {
-    console.log('print file updte');
-
-    document.boyd.removeChild(element);
-    element = component();
-    document.body.appendChild(element);
-    // printMe();
-  });
-}
