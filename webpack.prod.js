@@ -2,8 +2,8 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-console.log(process.env.NODE_ENV);
 module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
