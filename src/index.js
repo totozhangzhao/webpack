@@ -6,6 +6,7 @@ if (process.env.NODE_ENV !== 'production') {
 console.log(3333);
 
 import { cube } from './math';
+import './index.css';
 
 function component() {
   let element = document.createElement('pre');
