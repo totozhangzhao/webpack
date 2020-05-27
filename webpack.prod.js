@@ -32,12 +32,14 @@ module.exports = merge(common, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: ['css-loader', 'postcss-loader']
         })
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('style.css')
+    new ExtractTextPlugin({
+      filename: '[name].css'
+    })
   ]
 });

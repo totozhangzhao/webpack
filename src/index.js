@@ -1,10 +1,3 @@
-console.log(2222);
-
-if (process.env.NODE_ENV !== 'production') {
-  console.log('Looks like we are in development mode!');
-}
-console.log(3333);
-
 import { cube } from './math';
 import './index.css';
 
