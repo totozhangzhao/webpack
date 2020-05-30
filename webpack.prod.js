@@ -6,14 +6,6 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(common, {
   devtool: 'source-map',
-  plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    })
-  ],
   module: {
     rules: [
       {
@@ -31,15 +23,26 @@ module.exports = merge(common, {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'postcss-loader']
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                url: false
+              }
+            }
+          ]
         })
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css'
-    })
+    new UglifyJSPlugin({
+      sourceMap: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new ExtractTextPlugin("styles.css")
   ]
 });
