@@ -5,7 +5,7 @@ const common = require('./webpack.common.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = merge(common, {
-     : 'source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -35,17 +35,6 @@ module.exports = merge(common, {
         })
       }
     ]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "initial",
-          minChunks: 2
-        }
-      }
-    }
   },
   plugins: [
     new UglifyJSPlugin({
