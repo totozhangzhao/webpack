@@ -1,4 +1,8 @@
 import _ from 'lodash';
+import show from './test';
+
+show();
+
 function component() {
   var element = document.createElement('div');
   var button = document.createElement('button');
